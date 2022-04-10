@@ -3,6 +3,13 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
+//        resolutionStrategy {
+//            eachPlugin {
+//                if( requested.id.id == 'dagger.hilt.android.plugin') {
+//                    useModule("com.google.dagger:hilt-android-gradle-plugin:$gradle.rootProject.ext.hilt_version")
+//                }
+//            }
+//        }
     }
 }
 dependencyResolutionManagement {
@@ -10,6 +17,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
 }
 rootProject.name = "36_Retrofit"

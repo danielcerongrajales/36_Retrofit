@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.view.HomeFragment">
+    <at.grabner.circleprogress.CircleProgressView
+        android:id="@+id/circleView"
+        android:layout_width="128dp"
+        android:layout_height="112dp"
+        app:cpv_autoTextSize="true"
+        app:cpv_barColor="#21d07a"
+        app:cpv_barStrokeCap="Round"
+        app:cpv_barWidth="10dp"
+        app:cpv_fillColor="#081c22"
+        app:cpv_maxValue="100"
+        app:cpv_outerContourColor="#081c22"
+        app:cpv_outerContourSize="6dp"
+        app:cpv_rimColor="#204529"
+        app:cpv_rimWidth="10dp"
+        app:cpv_seekMode="false"
+        app:cpv_showUnit="true"
+        app:cpv_spinColor="#21d07a"
+        app:cpv_textColor="#21d07a"
+        app:cpv_textScale="1"
+        app:cpv_unit="%"
+        app:cpv_spinSpeed="6"
+        app:cpv_unitColor="#21d07a"
+        app:cpv_unitPosition="right_top"
+        app:cpv_unitScale="1"
+        app:cpv_value="72"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Puntuación \nde \nusuario "
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/circleView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/circleView"
+        app:layout_constraintTop_toTopOf="@+id/circleView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextLayout"
+        app:layout_constraintStart_toStartOf="@+id/editTextLayout"
+        app:layout_constraintTop_toBottomOf="@+id/editTextLayout"
+        app:spanCount="3"
+        tools:listitem="@layout/movie_item" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editTextLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Search View"
+        android:visibility="gone"
+        app:endIconMode="password_toggle"
+        app:hintEnabled="true"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textSize="12sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

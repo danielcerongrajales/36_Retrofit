@@ -9,13 +9,11 @@ import com.example.a36_retrofit.ui.viewmodel.MovieViewModel
 
 
 class MainActivity : AppCompatActivity() {
-    private val movieViewModel: MovieViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        movieViewModel.onCreate()
-       movieViewModel.movieModel.observe(this) { current ->
-           Log.d("TAG", "onCreate ${current.results}")
-       }
+
+
     }
 }
