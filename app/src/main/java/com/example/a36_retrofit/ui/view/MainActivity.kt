@@ -6,8 +6,9 @@ import android.util.Log
 import androidx.activity.viewModels
 import com.example.a36_retrofit.R
 import com.example.a36_retrofit.ui.viewmodel.MovieViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

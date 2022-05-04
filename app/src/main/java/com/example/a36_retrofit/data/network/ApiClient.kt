@@ -17,7 +17,7 @@ interface ApiClient {
     suspend fun getMovieByKeyword(@Path("key") key:String): Response<MovieByKeyword>
 
     @GET("/3/movie/{id}")
-    suspend fun getMovieById(@Path("id") id:String): Response<MovieById>
+    suspend fun getMovieById(@Path("id") id:Int): Response<MovieById>
 
     @GET("/3/collection/{id}")
     suspend fun getCollectionMovieById(@Path("id") id:String): Response<CollectionById>

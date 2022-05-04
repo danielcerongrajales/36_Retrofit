@@ -5,6 +5,6 @@ data class CollectionById(
     val id: Int,
     val name: String,
     val overview: String,
-    val parts: List<Result>,
+    val parts: List<MovieResul>,
     val poster_path: String
 )

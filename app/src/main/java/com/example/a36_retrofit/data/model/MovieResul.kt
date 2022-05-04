@@ -1,6 +1,9 @@
 package com.example.a36_retrofit.data.model
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
-data class Result(
+@Parcelize
+data class MovieResul(
     val adult: Boolean,
     val backdrop_path: String,
     val genre_ids: List<Int>,
@@ -15,4 +18,4 @@ data class Result(
     val video: Boolean,
     val vote_average: Double,
     val vote_count: Int
-)
+): Parcelable
