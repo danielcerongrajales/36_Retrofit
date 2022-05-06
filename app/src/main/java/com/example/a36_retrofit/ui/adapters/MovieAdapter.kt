@@ -34,7 +34,7 @@ class MovieAdapter(private val movieList: List<MovieResul>, private val listener
 
 
     fun filter(strSearch: String) {
-        Log.d("tag",movieList.size.toString())
+//        Log.d("tag",movieList.size.toString())
         if (strSearch.isEmpty()) {
             items.clear()
             items.addAll(movieList)

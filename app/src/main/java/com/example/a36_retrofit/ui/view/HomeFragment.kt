@@ -53,7 +53,8 @@ class HomeFragment : Fragment() {
                     val adapter=  current.popularMovies.results.let {
 
                         MovieAdapter(it!!) { item ->
-
+                            binding.sv.setQuery("", false)
+                            binding.sv.isIconified = true;
 //                            val res:Result=item
                             val bundle = bundleOf("peli" to item)
                             this.findNavController()
