@@ -50,6 +50,15 @@
         app:layout_constraintStart_toEndOf="@+id/circleView"
         app:layout_constraintTop_toTopOf="@+id/circleView" />
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/sv"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="wrap_content"
@@ -61,9 +70,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/editTextLayout"
         app:layout_constraintStart_toStartOf="@+id/editTextLayout"
-        app:layout_constraintTop_toBottomOf="@+id/editTextLayout"
+        app:layout_constraintTop_toBottomOf="@id/sv"
         app:spanCount="3"
-        tools:listitem="@layout/movie_item" />
+        tools:listitem="@layout/movie_item">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editTextLayout"
@@ -74,6 +85,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:hint="Search View"
+        android:visibility="gone"
         app:endIconMode="password_toggle"
         app:hintEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"

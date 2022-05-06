@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -49,16 +50,38 @@ class HomeFragment : Fragment() {
                     binding.circleView.stopSpinning()
                     binding.circleView.visibility = View.GONE
                     binding.textView2.visibility = View.GONE
-                    binding.recyclerView.adapter =
-                        current.popularMovies.results.let {
-                            MovieAdapter(it!!) { item ->
+                    val adapter=  current.popularMovies.results.let {
+
+                        MovieAdapter(it!!) { item ->
 
 //                            val res:Result=item
-                                val bundle = bundleOf("peli" to item)
-                                this.findNavController()
-                                    .navigate(R.id.action_homeFragment_to_detailsFragment, bundle)
+                            val bundle = bundleOf("peli" to item)
+                            this.findNavController()
+                                .navigate(R.id.action_homeFragment_to_detailsFragment, bundle)
+                        }
+                    }
+                    binding.recyclerView.adapter =adapter
+
+
+
+                    binding.sv.setOnQueryTextListener(
+                        object : SearchView.OnQueryTextListener {
+                            override fun onQueryTextChange(newText: String?): Boolean {
+                                // your text view here
+//                                textView.setText(newText)
+                                if (newText != null) {
+                                    adapter.filter(newText)
+                                };
+                                return true
+                            }
+
+                            override fun onQueryTextSubmit(query: String?): Boolean {
+//                                textView.setText(query)
+
+                                return true
                             }
                         }
+                         )
 //            Log.d("tag", "onHeroCLick: $current")
 //            binding.recyclerView.layoutManager= LinearLayoutManager(this.context)
 //            val adapter= current.keywords.let {

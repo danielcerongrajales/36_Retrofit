@@ -20,7 +20,7 @@ class DetailsFragment : Fragment() {
     private var _binding: FragmentDetailsBinding? = null
     private val binding get() = _binding!!
     companion object {
-        val MOVIE:String  = ""
+        val MOVIE:Int = -1
     }
     private val detailsViewModel: DetailsViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
