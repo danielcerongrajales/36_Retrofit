@@ -1,52 +1,38 @@
 package com.example.a36_retrofit.data.network
 
-//import com.google.gson.Gson
-import android.util.Log
-import com.example.a36_retrofit.core.Respuesta
 import com.example.a36_retrofit.data.model.*
-import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.json.JSONObject
+
 import javax.inject.Inject
-import com.example.a36_retrofit.ui.ext.convert
 
 class MovieService @Inject constructor(private val retrofit:ApiClient,private var pop:PopularMovies){
 
 
 
-    suspend fun getPopularMovies():Respuesta {
-        var a:Respuesta=Respuesta.Loading()
+
+    suspend fun getPopularMovies()= retrofit.getMoviePopular()
 //return try{
+//        var respu= withContext(Dispatchers.IO) { retrofit.getMoviePopular() }
 
-
-   var respu= withContext(Dispatchers.IO) {
-            retrofit.getMoviePopular()
-        }
-    if (respu.isSuccessful){
-        a= respu.body()?.let { Respuesta.Success(it) }!!
-
-    }else{
-        val jObjError = JSONObject(respu.errorBody()?.string() ?:"" )
-        val user: bad =jObjError.convert()
-
-        when(respu.code()){
-            401 -> Respuesta.HttpErrors.ResourceForbidden(user.status_message!!)
-            404 -> Respuesta.HttpErrors.ResourceNotFound(respu.message())
-            500 -> Respuesta.HttpErrors.InternalServerError(respu.message())
-            502 -> Respuesta.HttpErrors.BadGateWay(respu.message())
-            301 -> Respuesta.HttpErrors.ResourceRemoved(respu.message())
-            302 -> Respuesta.HttpErrors.RemovedResourceFound(respu.message())
-            else -> Respuesta.Failure(respu.message())
+//        val jObjError = JSONObject(respu.errorBody()?.string() ?:"" )
+//        val user: bad =jObjError.convert()
 //
-    }
-    }
-//}catch (error : IOException){
-//    Respuesta.Error(error.message!!)
-//}
-        return    a
+//        when(respu.code()){
+//            401 -> RespuestaModel.HttpErrors.ResourceForbidden(user.status_message!!)
+//            404 -> RespuestaModel.HttpErrors.ResourceNotFound(respu.message())
+//            500 -> RespuestaModel.HttpErrors.InternalServerError(respu.message())
+//            502 -> RespuestaModel.HttpErrors.BadGateWay(respu.message())
+//            301 -> RespuestaModel.HttpErrors.ResourceRemoved(respu.message())
+//            302 -> RespuestaModel.HttpErrors.RemovedResourceFound(respu.message())
+//            else -> RespuestaModel.Failure(respu.message())
+//
+//    }
+//    }
 
-    }
+
+
+//    }
 
 
 

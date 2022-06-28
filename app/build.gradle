@@ -42,6 +42,7 @@ android {
     buildFeatures{
         viewBinding true
     }
+    namespace 'com.example.a36_retrofit'
 //    androidExtensions {
 //        experimental = true
 //        features = ["parcelize"]
@@ -52,7 +53,6 @@ dependencies {
 
       // Activity
     implementation "androidx.activity:activity-ktx:1.4.0"
-
     //Corrutinas
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
     // Retrofit
@@ -63,13 +63,20 @@ dependencies {
     // LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
 
+    implementation 'com.airbnb.android:lottie:5.2.0'
+
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
     implementation 'com.github.bumptech.glide:glide:4.13.0'
     kapt 'com.github.bumptech.glide:compiler:4.13.0'
 
-
+    //dagger hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    //Room
+    implementation "androidx.room:room-ktx:2.4.2"
+    kapt "androidx.room:room-compiler:2.4.2"
 
     implementation 'com.github.jakob-grabner:Circle-Progress-View:1.4'
 

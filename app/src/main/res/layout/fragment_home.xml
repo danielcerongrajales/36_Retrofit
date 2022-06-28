@@ -5,10 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.view.HomeFragment">
+
     <at.grabner.circleprogress.CircleProgressView
         android:id="@+id/circleView"
         android:layout_width="128dp"
         android:layout_height="112dp"
+        android:visibility="gone"
         app:cpv_autoTextSize="true"
         app:cpv_barColor="#21d07a"
         app:cpv_barStrokeCap="Round"
@@ -22,10 +24,10 @@
         app:cpv_seekMode="false"
         app:cpv_showUnit="true"
         app:cpv_spinColor="#21d07a"
+        app:cpv_spinSpeed="6"
         app:cpv_textColor="#21d07a"
         app:cpv_textScale="1"
         app:cpv_unit="%"
-        app:cpv_spinSpeed="6"
         app:cpv_unitColor="#21d07a"
         app:cpv_unitPosition="right_top"
         app:cpv_unitScale="1"
@@ -36,6 +38,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -45,6 +48,7 @@
         android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/circleView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/circleView"
@@ -54,6 +58,7 @@
         android:id="@+id/sv"
         android:layout_width="0dp"
         android:layout_height="50dp"
+
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,6 +71,7 @@
         android:paddingStart="18dp"
         android:paddingEnd="18dp"
 
+        android:visibility="invisible"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/editTextLayout"
@@ -76,6 +82,70 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sv">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:baselineAligned="true">
+
+                <include layout="@layout/movie_item_shimmer" />
+
+                <include layout="@layout/movie_item_shimmer" />
+
+                <include layout="@layout/movie_item_shimmer" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <include layout="@layout/movie_item_shimmer" />
+
+                <include layout="@layout/movie_item_shimmer" />
+
+                <include layout="@layout/movie_item_shimmer" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <include layout="@layout/movie_item_shimmer" />
+
+                <include layout="@layout/movie_item_shimmer" />
+
+                <include layout="@layout/movie_item_shimmer" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <include layout="@layout/movie_item_shimmer" />
+
+                <include layout="@layout/movie_item_shimmer" />
+
+                <include layout="@layout/movie_item_shimmer" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editTextLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"

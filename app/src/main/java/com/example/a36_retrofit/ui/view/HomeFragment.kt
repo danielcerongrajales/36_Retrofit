@@ -12,9 +12,9 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.a36_retrofit.R
-import com.example.a36_retrofit.core.Respuesta
 import com.example.a36_retrofit.databinding.FragmentHomeBinding
 import com.example.a36_retrofit.ui.adapters.MovieAdapter
+import com.example.a36_retrofit.data.utils.DataState
 import com.example.a36_retrofit.ui.viewmodel.MovieViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -35,36 +35,30 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+
     private fun setObservers() {
+
         movieViewModel.popularMovies.observe(viewLifecycleOwner) { current ->
             when (current) {
-                is Respuesta.Loading -> {
-                    Log.d("tag", "loading")
-                    binding.circleView.spin() // start spinning
-                }
-                is Respuesta.Failure -> {
-                    Log.d("tag", current.error)
-                }
-                is Respuesta.Success -> {
-                    Log.d("tag", "success")
-                    binding.circleView.stopSpinning()
-                    binding.circleView.visibility = View.GONE
-                    binding.textView2.visibility = View.GONE
-                    val adapter=  current.popularMovies.results.let {
-
-                        MovieAdapter(it!!) { item ->
-                            binding.sv.setQuery("", false)
-                            binding.sv.isIconified = true;
+                is DataState.Data -> {
+                    Log.d("tag", "${current.response!!.response.message}")
+//                    binding.circleView.stopSpinning()
+//                    binding.circleView.visibility = View.GONE
+//                    binding.textView2.visibility = View.GONE
+//
+//                    current.popularMovies as PopularMovies
+                    val adapter= MovieAdapter(current.data!!) { item ->
+                        binding.sv.setQuery("", false)
+                        binding.sv.isIconified = true
 //                            val res:Result=item
-                            val bundle = bundleOf("peli" to item)
-                            this.findNavController()
-                                .navigate(R.id.action_homeFragment_to_detailsFragment, bundle)
-                        }
+                        val bundle = bundleOf("peli" to item)
+                        this.findNavController()
+                            .navigate(R.id.action_homeFragment_to_detailsFragment, bundle)
                     }
                     binding.recyclerView.adapter =adapter
-
-
-
+                    binding.recyclerView.visibility=View.VISIBLE
+                    binding.shimmer.stopShimmer()
+                    binding.shimmer.visibility = View.GONE
                     binding.sv.setOnQueryTextListener(
                         object : SearchView.OnQueryTextListener {
                             override fun onQueryTextChange(newText: String?): Boolean {
@@ -72,7 +66,7 @@ class HomeFragment : Fragment() {
 //                                textView.setText(newText)
                                 if (newText != null) {
                                     adapter.filter(newText)
-                                };
+                                }
                                 return true
                             }
 
@@ -82,12 +76,70 @@ class HomeFragment : Fragment() {
                                 return true
                             }
                         }
-                         )
+                    )
+                }
+                is DataState.Error ->    {
+                    Log.d("tag", "${current.response.response.message}")
+
+                }
+                is DataState.Loading -> {
+                    Log.d("tag", "loading")
+//                    binding.circleView.spin() // start spinning
+                }
+            }
+//                is RespuestaItem.Loading -> {
+//                    Log.d("tag", "loading")
+//                    binding.circleView.spin() // start spinning
+//                }
+//                is RespuestaItem.Failure -> {
+//                    Log.d("tag", current.error)
+//                }
+//                is RespuestaItem.Success -> {
+//                    Log.d("tag", "success")
+//                    binding.circleView.stopSpinning()
+//                    binding.circleView.visibility = View.GONE
+//                    binding.textView2.visibility = View.GONE
+//
+//                    current.popularMovies as PopularMovies
+//                    val adapter=  current.popularMovies.results.let {
+//
+//                        MovieAdapter(it!!) { item ->
+//                            binding.sv.setQuery("", false)
+//                            binding.sv.isIconified = true;
+////                            val res:Result=item
+//                            val bundle = bundleOf("peli" to item)
+//                            this.findNavController()
+//                                .navigate(R.id.action_homeFragment_to_detailsFragment, bundle)
+//                        }
+//                    }
+//                    binding.recyclerView.adapter =adapter
+//                    binding.recyclerView.visibility=View.VISIBLE
+//                    binding.shimmer.stopShimmer()
+//                    binding.shimmer.visibility = View.GONE
+
+//                    binding.sv.setOnQueryTextListener(
+//                        object : SearchView.OnQueryTextListener {
+//                            override fun onQueryTextChange(newText: String?): Boolean {
+//                                // your text view here
+////                                textView.setText(newText)
+//                                if (newText != null) {
+//                                    adapter.filter(newText)
+//                                };
+//                                return true
+//                            }
+//
+//                            override fun onQueryTextSubmit(query: String?): Boolean {
+////                                textView.setText(query)
+//
+//                                return true
+//                            }
+//                        }
+//                         )
 //            Log.d("tag", "onHeroCLick: $current")
 //            binding.recyclerView.layoutManager= LinearLayoutManager(this.context)
 //            val adapter= current.keywords.let {
-                }
-            }
+//                }
+//            }
         }
     }
 //            binding.circleView.spin() // start spinning
