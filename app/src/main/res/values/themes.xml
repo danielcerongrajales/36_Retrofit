@@ -26,10 +26,36 @@
 <!--        <item name="colorOnSurface">@color/shrine_pink_900</item>-->
     </style>
     <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
-        <item name="cornerFamily">cut</item>
-        <item name="cornerSize">8dp</item>
+        <item name="cornerFamilyTopRight">cut</item>
+        <item name="cornerFamilyTopLeft">cut</item>
+        <item name="cornerSizeTopLeft">8dp</item>
+        <item name="cornerSizeTopRight">8dp</item>
+    </style>
+    <style name="ShapeAppearance.App.MediumComponent2" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamilyTopRight">cut</item>
+        <item name="cornerFamilyTopLeft">cut</item>
+        <item name="cornerSizeTopLeft">8dp</item>
+        <item name="cornerSizeTopRight">8dp</item>
     </style>
     <style name="Style_Background" parent="">
     <item name="android:background">@drawable/backgroundcolor</item>
     </style>
+    <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+
+        <item name="cornerSize">50%</item>
+    </style>
+    <style name="castItemTheme" >
+        <item name="android:background">#B31010</item>
+    </style>
+    <style name="title" >
+
+        <item name="android:fontFamily">@font/roboto</item>
+
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
 </resources>

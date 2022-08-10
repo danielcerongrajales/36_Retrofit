@@ -6,7 +6,7 @@ import com.example.a36_retrofit.data.utils.*
 
 abstract class CacheResponseHandler <ViewState, Data>(
     private val response: CacheResult<Data?>,
-    private val stateEvent: StateEvent?
+//    private val stateEvent: StateEvent?
 ){
     suspend fun getResult(): DataState<ViewState>? {
 
@@ -15,10 +15,12 @@ abstract class CacheResponseHandler <ViewState, Data>(
             is CacheResult.GenericError -> {
                 DataState.Error(
                     response = StateMessage(Response(
-                        message = "${stateEvent?.errorInfo()}\n\nReason: ${response.errorMessage}",
+                        message = "Reason: ${response.errorMessage}",
+//                        message = "${stateEvent?.errorInfo()}\n\nReason: ${response.errorMessage}",
+
                         messageType = MessageType.Error
                     )),
-                    stateEvent = stateEvent
+//                    stateEvent = stateEvent
                 )
             }
 
@@ -26,10 +28,11 @@ abstract class CacheResponseHandler <ViewState, Data>(
                 if(response.value == null){
                     DataState.Error(
                         response =StateMessage( Response(
-                            message = "${stateEvent?.errorInfo()}\n\nReason: ${CACHE_DATA_NULL}.",
+                            message = "Reason: ${CACHE_DATA_NULL}.",
+//                            message = "${stateEvent?.errorInfo()}\n\nReason: ${CACHE_DATA_NULL}.",
                             messageType = MessageType.Error
                         )),
-                        stateEvent = stateEvent
+//                        stateEvent = stateEvent
                     )
                 }
                 else{

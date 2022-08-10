@@ -1,6 +1,6 @@
 package com.example.a36_retrofit.data.network
 
-import com.example.a36_retrofit.data.model.*
+import com.example.a36_retrofit.data.network.model.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -11,7 +11,7 @@ class MovieService @Inject constructor(private val retrofit:ApiClient,private va
 
 
 
-    suspend fun getPopularMovies()= retrofit.getMoviePopular()
+    suspend fun getPopularMovies(page:Int)= retrofit.getMoviePopular(page)
 //return try{
 //        var respu= withContext(Dispatchers.IO) { retrofit.getMoviePopular() }
 
@@ -34,7 +34,9 @@ class MovieService @Inject constructor(private val retrofit:ApiClient,private va
 
 //    }
 
-
+    suspend fun getMovieById(id:Int) = retrofit.getMovieDetailsById(id)
+    suspend fun getCredits(id:Int) = retrofit.getCredits(id)
+    suspend fun getMovieTopRated() = retrofit.getMovieTopRated()
 
 
       suspend fun getKeywordFromQuery(query:String): KeywordByQuery = withContext(Dispatchers.IO) {
@@ -49,10 +51,6 @@ class MovieService @Inject constructor(private val retrofit:ApiClient,private va
     }
 
 
-    suspend fun getMovieById(id:Int): MovieById = withContext(Dispatchers.IO) {
-
-    retrofit.getMovieById(id).body()!!
-}
 
     suspend fun getCollectionMovieById(id:String): CollectionById = withContext(Dispatchers.IO) {
 

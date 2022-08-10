@@ -7,7 +7,7 @@ import com.example.a36_retrofit.data.utils.*
 
 abstract class ApiResponseHandler <ViewState, Data>(
     private val response: NetworkResponse<Data?>,
-    private val stateEvent: StateEvent?
+//    private val stateEvent: StateEvent?
 ){
 
     suspend fun getResult(): DataState<ViewState>? {
@@ -17,21 +17,24 @@ abstract class ApiResponseHandler <ViewState, Data>(
             is NetworkResponse.GenericError -> {
                 DataState.Error(
                     response = StateMessage( Response(
-                        message = "${stateEvent?.errorInfo()}\n\nReason: ${response.errorMessage.toString()}",
+//                        message = "${stateEvent?.errorInfo()}\n\nReason: ${response.errorMessage.toString()}",
+                        message = "Reason: ${response.errorMessage.toString()}",
 
                         messageType = MessageType.Error
                     )),
-                    stateEvent = stateEvent
+//                    stateEvent = stateEvent
                 )
             }
 
             is NetworkResponse.NetworkError -> {
                 DataState.Error(
                     response = StateMessage(Response(
-                        message = "${stateEvent?.errorInfo()} Reason: $NETWORK_ERROR",
+                        message = "Reason: $NETWORK_ERROR",
+//                        message = "${stateEvent?.errorInfo()} Reason: $NETWORK_ERROR",
+
                         messageType = MessageType.Error
                     )),
-                    stateEvent = stateEvent
+//                    stateEvent = stateEvent
                 )
             }
 
@@ -39,10 +42,11 @@ abstract class ApiResponseHandler <ViewState, Data>(
                 if(response.value == null){
                     DataState.Error(
                         response =StateMessage(Response(
-                            message = "${stateEvent?.errorInfo()}\n\nReason: ${NETWORK_DATA_NULL}.",
+                            message = "Reason: ${NETWORK_DATA_NULL}.",
+//                            message = "${stateEvent?.errorInfo()}\n\nReason: ${NETWORK_DATA_NULL}.",
                             messageType = MessageType.Error
                         )),
-                        stateEvent = stateEvent
+//                        stateEvent = stateEvent
                     )
                 }
                 else{
@@ -50,8 +54,8 @@ abstract class ApiResponseHandler <ViewState, Data>(
                     handleSuccess(resultObj = response.value)
                 }
             }
-            NetworkResponse.Finished -> DataState.Loading()
-            NetworkResponse.Loading -> DataState.Loading()
+//            NetworkResponse.Finished -> DataState.Loading()
+//            NetworkResponse.Loading -> DataState.Loading()
         }
     }
 

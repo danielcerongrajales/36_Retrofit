@@ -1,7 +1,7 @@
 package com.example.a36_retrofit.di
 
 import com.example.a36_retrofit.BuildConfig
-import com.example.a36_retrofit.data.model.PopularMovies
+import com.example.a36_retrofit.data.network.model.PopularMovies
 import com.example.a36_retrofit.data.network.ApiClient
 import dagger.Module
 import dagger.Provides
@@ -34,7 +34,7 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideRetrofit(addClient: OkHttpClient): Retrofit {
-        return Retrofit.Builder().baseUrl("https://api.themoviedb.org/")
+        return Retrofit.Builder().baseUrl("https://api.themoviedb.org/3/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(addClient)
             .build()
@@ -53,7 +53,7 @@ object NetworkModule {
     @Provides
     fun provideAuthInterceptor(): Interceptor {
         return Interceptor { chain->
-            val url: HttpUrl = chain.request().url().newBuilder()
+            val url: HttpUrl = chain.request().url.newBuilder()
                 .addQueryParameter("api_key", BuildConfig.MOVIE_API_KEY)
                 .build()
             val request=chain.request().newBuilder()

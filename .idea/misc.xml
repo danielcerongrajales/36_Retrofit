@@ -6,14 +6,26 @@
         <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/drawable-v24/avd_dashboard.xml" value="0.1" />
         <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/drawable/avd_dashboard.xml" value="0.1" />
         <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/drawable/backgroundcolor.xml" value="0.125" />
+        <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/drawable/ic_baseline_movie_filter_24.xml" value="0.1" />
+        <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/drawable/ic_baseline_star_24.xml" value="0.1" />
+        <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/drawable/ic_baseline_stars_24.xml" value="0.103" />
+        <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/drawable/icon.xml" value="0.1" />
+        <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/drawable/icon_animated.xml" value="0.1" />
+        <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/drawable/trending_gradient_shape.xml" value="0.103" />
         <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/drawable/vd_menu.xml" value="0.1" />
         <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/drawable/vd_search.xml" value="0.1" />
+        <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/drawable/your_drawable.xml" value="0.103" />
         <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/layout/fragment_details.xml" value="0.2" />
-        <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/layout/cast_item.xml" value="0.20642978003384094" />
+        <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/layout/cast_item_shimmer.xml" value="0.25" />
+        <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/layout/fragment_details.xml" value="0.22" />
+        <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/layout/fragment_details_shimmer.xml" value="0.2248062015503876" />
+        <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/layout/layout_toolbar.xml" value="0.33" />
-        <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/layout/movie_item.xml" value="0.25" />
+        <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/layout/load_state_view.xml" value="0.22" />
+        <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/layout/movie_item.xml" value="0.5" />
         <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/layout/movie_item_shimmer.xml" value="0.33" />
+        <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/layout/top_rated_movie_item.xml" value="0.2" />
         <entry key="..\:/Users/dan/Desktop/Programacion/lenguajes/android/kotlin/cursos/aristidevs/36_Retrofit/app/src/main/res/layout/your_item.xml" value="0.12454710144927536" />
       </map>
     </option>

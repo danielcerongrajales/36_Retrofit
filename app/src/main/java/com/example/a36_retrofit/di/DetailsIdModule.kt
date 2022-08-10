@@ -1,7 +1,7 @@
 package com.example.a36_retrofit.di
 
 import androidx.lifecycle.SavedStateHandle
-import com.example.a36_retrofit.domain.model.Movie
+import com.example.a36_retrofit.domain.homeDomain.model.MovieItem
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,8 +13,8 @@ import javax.inject.Named
 object DetailsIdModule {
         @Provides
         @Named("movieId")
-        fun movieIdProvider(stateHandle: SavedStateHandle): Movie =
-            stateHandle.get<Movie>("peli")
+        fun movieIdProvider(stateHandle: SavedStateHandle): MovieItem =
+            stateHandle.get<MovieItem>("popularMovie")
                 ?: throw IllegalStateException("Movie Id not found in the state handle")
 
 }

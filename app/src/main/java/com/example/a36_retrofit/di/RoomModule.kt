@@ -22,5 +22,7 @@ object RoomModule {
     @Singleton
     @Provides
     fun provideMovieDao(db:MovieDatabase)= db.getMovieDao()
-
+    @Singleton
+    @Provides
+    fun provideRemoteKeyDao(db:MovieDatabase)= db.remoteKeyDao()
 }

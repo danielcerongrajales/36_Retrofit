@@ -1,10 +1,10 @@
 package com.example.a36_retrofit.data.utils
 
-data class StateMessage(val response: Response)
+data class StateMessage(val response: Response?=Response())
 
 data class Response(
-    val message: String?,
-    val messageType: MessageType
+    val message: String?="empty state",
+    val messageType: MessageType?=MessageType.None
 )
 sealed class MessageType{
 
